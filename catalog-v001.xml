@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1546798008748" name="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology" uri="game-ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1546798669036" name="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology" uri="game-ontology.owl"/>
     </group>
 </catalog>

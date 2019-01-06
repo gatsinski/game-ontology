@@ -168,10 +168,66 @@
     
 
 
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Bow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Bow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapons"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Crossbow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Crossbow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapons"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Helmet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Helmet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Armor"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Knife -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Knife">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapons"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Shield -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Shield">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Armor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Spear -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Spear">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapons"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapons"/>
     </owl:Class>
     
 
@@ -564,6 +620,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Grain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Grain">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Food"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill">
@@ -572,12 +636,32 @@
     
 
 
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Meat -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Meat">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Food"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NedStark -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NedStark">
         <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
+        <untitled-ontology-3:hasEquipment rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#ValyrianSteelSword"/>
+        <untitled-ontology-3:hasItem rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Meat"/>
         <untitled-ontology-3:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill"/>
         <untitled-ontology-3:isSoldierOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy"/>
+        <untitled-ontology-3:hasLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</untitled-ontology-3:hasLevel>
+        <untitled-ontology-3:hasName>Ned Stark</untitled-ontology-3:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NormalSteelSword -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NormalSteelSword">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword"/>
     </owl:NamedIndividual>
     
 
@@ -594,8 +678,29 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#RobStark">
         <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
+        <untitled-ontology-3:hasEquipment rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NormalSteelSword"/>
+        <untitled-ontology-3:hasItem rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Grain"/>
         <untitled-ontology-3:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill"/>
+        <untitled-ontology-3:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#TacticsSkill"/>
         <untitled-ontology-3:isSoldierOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy"/>
+        <untitled-ontology-3:hasLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</untitled-ontology-3:hasLevel>
+        <untitled-ontology-3:hasName>Rob Stark</untitled-ontology-3:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#TacticsSkill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#TacticsSkill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Tactics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#ValyrianSteelSword -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#ValyrianSteelSword">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
