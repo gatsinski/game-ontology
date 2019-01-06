@@ -6,7 +6,8 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:game-ontology="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#">
+     xmlns:game-ontology="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#"
+     xmlns:untitled-ontology-3="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology"/>
     
 
@@ -19,6 +20,16 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSoldier -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSoldier">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#isSoldierOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Army"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
+    </owl:ObjectProperty>
     
 
 
@@ -65,17 +76,6 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSoldiers -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSoldiers">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Army"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
     </owl:ObjectProperty>
     
 
@@ -168,6 +168,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Equipment"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Armor -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Armor">
@@ -181,7 +189,7 @@
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Army">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSoldiers"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSoldier"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -216,20 +224,22 @@
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Equipment -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Equipment">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#isEquipmentOf"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Armor"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapons"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#First_Aid -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#FirstAid -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#First_Aid">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#FirstAid">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PartySkill"/>
     </owl:Class>
     
@@ -243,17 +253,17 @@
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Horse_Archery -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#HorseArchery -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Horse_Archery">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#HorseArchery">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PersonalSkill"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Inventory_Management -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#InventoryManagement -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Inventory_Management">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#InventoryManagement">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#LeaderSkill"/>
     </owl:Class>
     
@@ -269,21 +279,22 @@
 
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Item -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Item">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#isItemOf"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Item"/>
     
 
 
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#LeaderSkill -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#LeaderSkill">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#InventoryManagement"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Leadership"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PrisonerManagement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill"/>
     </owl:Class>
     
@@ -308,14 +319,30 @@
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PartySkill -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PartySkill">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Engineer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#FirstAid"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Looting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PathFinding"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Spotting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Surgery"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Tactics"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Tracking"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Trade"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#WoundTreatment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Path-finding -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PathFinding -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Path-finding">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PathFinding">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PartySkill"/>
     </owl:Class>
     
@@ -324,6 +351,23 @@
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PersonalSkill -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PersonalSkill">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Athletics"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#HorseArchery"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Ironflesh"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Persuasion"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerDraw"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerStrike"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerThrow"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Riding"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Shield"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Trainer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#WeaponMaster"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill"/>
     </owl:Class>
     
@@ -342,209 +386,74 @@
     <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasEquipment"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Equipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasItem"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Item"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Athletics"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#isSoldierOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Army"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Engineer"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasLevel"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#First_Aid"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Horse_Archery"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Inventory_Management"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Ironflesh"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Leadership"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Looting"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Path-finding"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Persuasion"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Draw"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Strike"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Throw"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Prisoner_Management"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Riding"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Shield"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Spotting"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Surgery"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Tactics"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Tracking"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Trade"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Trainer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapon_Master"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasSkill"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Wound_Treatment"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#hasName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Draw -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerDraw -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Draw">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerDraw">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PersonalSkill"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Strike -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerStrike -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Strike">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerStrike">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PersonalSkill"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Throw -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerThrow -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Throw">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PowerThrow">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PersonalSkill"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Prisoner_Management -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PrisonerManagement -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Prisoner_Management">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PrisonerManagement">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#LeaderSkill"/>
     </owl:Class>
     
@@ -568,15 +477,7 @@
 
     <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#isSkillOf"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill"/>
     
 
 
@@ -628,9 +529,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapon_Master -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#WeaponMaster -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapon_Master">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#WeaponMaster">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PersonalSkill"/>
     </owl:Class>
     
@@ -644,9 +545,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Wound_Treatment -->
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#WoundTreatment -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Wound_Treatment">
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#WoundTreatment">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#PartySkill"/>
     </owl:Class>
     
@@ -655,60 +556,47 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // General axioms
+    // Individuals
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Army"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Equipment"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Item"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Skill"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Athletics"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Horse_Archery"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Ironflesh"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Persuasion"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Draw"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Strike"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Power_Throw"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Riding"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Shield"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Trainer"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Weapon_Master"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Engineer"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#First_Aid"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Looting"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Path-finding"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Spotting"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Surgery"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Tactics"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Tracking"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Trade"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Wound_Treatment"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Inventory_Management"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Leadership"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Prisoner_Management"/>
-        </owl:members>
-    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Leadership"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NedStark -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NedStark">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
+        <untitled-ontology-3:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill"/>
+        <untitled-ontology-3:isSoldierOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Army"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#RobStark -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#RobStark">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/untitled-ontology-3#Player"/>
+        <untitled-ontology-3:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill"/>
+        <untitled-ontology-3:isSoldierOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
