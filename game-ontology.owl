@@ -1,0 +1,763 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#"
+     xml:base="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:game-ontology="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSoldier -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSoldier">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isSoldierOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Army"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasAlly -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasAlly">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasEquipment -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasEquipment">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isEquipmentOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasItem -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasItem">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isItemOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Item"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSkill -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSkill">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isSkillOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isEquipmentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isEquipmentOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isItemOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isItemOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Item"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isSkillOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isSkillOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isSoldierOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isSoldierOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Army"/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Bow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Bow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Crossbow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Crossbow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Helmet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Helmet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Armor"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Knife -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Knife">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Shield -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Shield">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Armor"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Spear -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Spear">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Armor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Armor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Army -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Army">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSoldier"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Athletics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Athletics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Book -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Book">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Item"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Engineer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Engineer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Horse"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Armor"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#FirstAid -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#FirstAid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Food -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Food">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Item"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#HorseArchery -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#HorseArchery">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#InventoryManagement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#InventoryManagement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeaderSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Ironflesh -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Ironflesh">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Item -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Item">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Book"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Food"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeaderSkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeaderSkill">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#InventoryManagement"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Leadership"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PrisonerManagement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Leadership -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Leadership">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeaderSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Looting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Looting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Engineer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#FirstAid"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Looting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PathFinding"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Spotting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Surgery"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Tactics"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Tracking"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Trade"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#WoundTreatment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PathFinding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PathFinding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Athletics"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#HorseArchery"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Ironflesh"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Persuasion"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerDraw"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerStrike"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerThrow"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Riding"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Shield"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Trainer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#WeaponMaster"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Persuasion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Persuasion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasEquipment"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasItem"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Item"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasSkill"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#isSoldierOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Army"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasLevel"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#hasName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerDraw -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerDraw">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerStrike -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerStrike">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerThrow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PowerThrow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PrisonerManagement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PrisonerManagement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeaderSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Riding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Riding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Shield -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Shield">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Skill">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeaderSkill"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Spotting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Spotting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Surgery -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Surgery">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Tactics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Tactics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Tracking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Tracking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Trade -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Trade">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Trainer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Trainer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#WeaponMaster -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#WeaponMaster">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PersonalSkill"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Weapons">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Equipment"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#WoundTreatment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#WoundTreatment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#PartySkill"/>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Grain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Grain">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Food"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Leadership"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Meat -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Meat">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Food"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NedStark -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NedStark">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <game-ontology:hasEquipment rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#ValyrianSteelSword"/>
+        <game-ontology:hasItem rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Meat"/>
+        <game-ontology:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill"/>
+        <game-ontology:isSoldierOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy"/>
+        <game-ontology:hasLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</game-ontology:hasLevel>
+        <game-ontology:hasName>Ned Stark</game-ontology:hasName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NormalSteelSword -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NormalSteelSword">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Army"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#RobStark -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#RobStark">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Player"/>
+        <game-ontology:hasEquipment rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NormalSteelSword"/>
+        <game-ontology:hasItem rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Grain"/>
+        <game-ontology:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill"/>
+        <game-ontology:hasSkill rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#TacticsSkill"/>
+        <game-ontology:isSoldierOf rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NorthernArmy"/>
+        <game-ontology:hasLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</game-ontology:hasLevel>
+        <game-ontology:hasName>Rob Stark</game-ontology:hasName>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#TacticsSkill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#TacticsSkill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Tactics"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#ValyrianSteelSword -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#ValyrianSteelSword">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Sword"/>
+    </owl:NamedIndividual>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Grain"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#Meat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#LeadershipSkill"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#TacticsSkill"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NedStark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#RobStark"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#NormalSteelSword"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#ValyrianSteelSword"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.7.2018-12-02T02:23:35Z) https://github.com/owlcs/owlapi -->

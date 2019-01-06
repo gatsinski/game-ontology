@@ -1,0 +1,183 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?Players
+WHERE {
+  ?Players ?hasLevel 15 .
+}
+
+-------------------------------------------------------------------------------
+Select all instances where type is Player
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+SELECT *
+WHERE {?player rdf:type game:Player . }
+
+
+-------------------------------------------------------------------------------
+Select all instances which are subclass of Weapons
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+SELECT ?group ?individual
+WHERE {?group  rdfs:subClassOf game:Weapons . ?group ^rdf:type ?individual }
+
+
+-------------------------------------------------------------------------------
+Select all instances which are subclass of Item
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+SELECT ?group ?individual
+WHERE {?group  rdfs:subClassOf game:Item . ?group ^rdf:type ?individual }
+
+
+-------------------------------------------------------------------------------
+Select all instances which have skill of type Leadership
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+SELECT ?player
+WHERE {?player game:hasSkill ?skillFilter . ?skillFilter rdf:type game:Leadership }
+
+-------------------------------------------------------------------------------
+Select all weapons and their subtypes
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+
+SELECT ?Instance ?Type
+WHERE {?Type  rdfs:subClassOf game:Weapons . ?Type ^rdf:type ?Instance }
+
+
+-------------------------------------------------------------------------------
+Select all players with Leadership (instance) skill
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+
+SELECT ?player
+WHERE {?player game:hasSkill game:LeadershipSkill}
+
+-------------------------------------------------------------------------------
+Select all players with swords
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+SELECT ?Player
+WHERE {?Player game:hasEquipment ?y . ?y rdf:type game:Sword}
+
+
+-------------------------------------------------------------------------------
+Select all players with TacticsSkill instance as skill
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+
+SELECT ?Player
+WHERE {?Player game:hasSkill game:TacticsSkill . }
+
+
+-------------------------------------------------------------------------------
+Select all players with ValyrianSteelSword instance as equipment
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+
+SELECT ?Player
+WHERE {?Player game:hasEquipment game:ValyrianSteelSword . }
+
+-------------------------------------------------------------------------------
+Select all players ordered by level descending.
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+SELECT ?Player ?Level
+WHERE {?Player game:hasLevel ?Level } ORDER BY DESC (?p) LIMIT 10
+
+-------------------------------------------------------------------------------
+Select all players with level lower than 12
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+
+SELECT ?Player ?Level
+WHERE {?Player game:hasLevel ?Level FILTER(?Level < 12)}
+
+-------------------------------------------------------------------------------
+Select all players which name is Rob Stark
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+
+SELECT ?Player
+WHERE {?Player game:hasName ?name FILTER(?name = "Rob Stark")}
+
+-------------------------------------------------------------------------------
+Select all players with name including Stark
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+
+SELECT ?Player
+WHERE {?Player game:hasName ?name FILTER(regex(?name, "Stark"))}
