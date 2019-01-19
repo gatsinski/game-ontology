@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Items</title>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <th:block th:replace="fragments/nav :: nav"></th:block>
+  </nav>
+
+  <main class="container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th id="item" scope="col">Item</th>
+        <th id="type" scope="col">Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="item: ${items}">
+        <td headers="item" th:text="${item.instance}"/>
+        <td headers="type" th:text="${item.type}"/>
+      </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

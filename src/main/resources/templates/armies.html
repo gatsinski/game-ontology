@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Query</title>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <th:block th:replace="fragments/nav :: nav"></th:block>
+  </nav>
+
+  <main class="container">
+    <ul class="list-group">
+      <li class="list-group-item" th:each="army: ${armies}" th:text="${army}"/>
+    </ul>
+  </main>
+
+  <th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

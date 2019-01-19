@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Query</title>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <th:block th:replace="fragments/nav :: nav"></th:block>
+  </nav>
+
+  <main class="container">
+    <form method="POST" th:action="@{query}" th:object="${queryDto}">
+      <div class="form-group">
+        <label for="query" class="control-label">Query:</label>
+        <textarea id="query" name="query" class="form-control" rows="5" th:text="*{query}"></textarea>
+      </div>
+
+      <p class="error-message"
+         th:each="error: ${#fields.errors('query')}"
+         th:text="${error}">Validation error</p>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Execute</button>
+      </div>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" th:each="variableName: ${variableNames}" th:text="${variableName}">
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="row: ${rows}">
+          <td th:each="value: ${row}" th:text="${value}"/>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

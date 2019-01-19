@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Skills</title>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <th:block th:replace="fragments/nav :: nav"></th:block>
+  </nav>
+
+  <main class="container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th></th>
+        <th id="skill" scope="col">Skill</th>
+        <th id="type" scope="col">Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th id="leaderSkills">Leader skills</th>
+        <td colspan="2"></td>
+      </tr>
+      <tr th:each="skill: ${LeaderSkill}">
+        <td></td>
+        <td headers="skill leaderSkills" th:text="${skill.instance}"/>
+        <td headers="type leaderSkills" th:text="${skill.type}"/>
+      </tr>
+      <tr>
+        <th id="partySkills">Party skills</th>
+        <td colspan="2"></td>
+      </tr>
+      <tr th:each="skill: ${PartySkill}">
+        <td></td>
+        <td headers="skill partySkills" th:text="${skill.instance}"/>
+        <td headers="type partySkills" th:text="${skill.type}"/>
+      </tr>
+      <tr>
+        <th id="personalSkills">Personal skills</th>
+        <td colspan="2"></td>
+      </tr>
+      <tr th:each="skill: ${PersonalSkill}">
+        <td></td>
+        <td headers="skill personalSkills" th:text="${skill.instance}"/>
+        <td headers="type personalSkills" th:text="${skill.type}"/>
+      </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

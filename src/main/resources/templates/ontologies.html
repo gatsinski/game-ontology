@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ontologies</title>
+</head>
+<body>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" th:each="ontology: ${ontologies}">
+      <span th:text="${ontology.name}"/> - <span th:text="${ontology.uri}"/>
+    </li>
+  </ul>
+</body>
+</html>

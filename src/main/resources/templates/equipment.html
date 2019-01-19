@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Equipmnet</title>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <th:block th:replace="fragments/nav :: nav"></th:block>
+  </nav>
+
+  <main class="container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th></th>
+        <th id="equipment" scope="col">Equipment</th>
+        <th id="type" scope="col">Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th id="armor">Armor</th>
+        <td colspan="2"></td>
+      </tr>
+      <tr th:each="armor: ${Armor}">
+        <td></td>
+        <td headers="equipment armor" th:text="${armor.instance}"/>
+        <td headers="type armor" th:text="${armor.type}"/>
+      </tr>
+      <tr>
+        <th id="horse">Horse</th>
+        <td colspan="2"></td>
+      </tr>
+      <tr th:each="horse: ${Horse}">
+        <td></td>
+        <td headers="equipment horse" th:text="${horse.instance}"/>
+        <td headers="type horse" th:text="${horse.type}"/>
+      </tr>
+      <tr>
+        <th id="weapons">Weapons</th>
+        <td colspan="2"></td>
+      </tr>
+      <tr th:each="weapon: ${Weapons}">
+        <td></td>
+        <td headers="equipment weapons" th:text="${weapon.instance}"/>
+        <td headers="type weapons" th:text="${weapon.type}"/>
+      </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>
