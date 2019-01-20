@@ -33,6 +33,11 @@ public class MainController {
     @Autowired
     private QueryService queryService;
 
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/armies";
+    }
+
     @GetMapping(value="/ontologies")
     public String getOntologies(Model model) {
         List<Object> list = new ArrayList<>();

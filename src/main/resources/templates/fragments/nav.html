@@ -7,7 +7,7 @@
 <body>
   <th:block th:fragment="nav">
     <div class="container">
-      <a class="navbar-brand" href="/">TUO</a>
+      <a class="navbar-brand" href="/">Game Ontology</a>
 
       <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -55,6 +55,11 @@
                 Personal
               </a>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/query}">
+              Experiment
+            </a>
           </li>
         </ul>
       </div>

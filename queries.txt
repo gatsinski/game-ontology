@@ -69,7 +69,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
 
-
 SELECT ?Instance ?Type
 WHERE {?Type  rdfs:subClassOf game:Weapons . ?Type ^rdf:type ?Instance }
 
@@ -82,7 +81,6 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
-
 
 SELECT ?player
 WHERE {?player game:hasSkill game:LeadershipSkill}
@@ -97,9 +95,20 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
 
-SELECT ?Player
-WHERE {?Player game:hasEquipment ?y . ?y rdf:type game:Sword}
+SELECT ?Player ?Sword
+WHERE {?Player game:hasEquipment ?Sword . ?Sword rdf:type game:Sword}
 
+-------------------------------------------------------------------------------
+Select all players with ValyrianSteelSword
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
+
+SELECT ?player
+WHERE {?player game:hasEquipment game:ValyrianSteelSword}
 
 -------------------------------------------------------------------------------
 Select all players with TacticsSkill instance as skill
@@ -151,7 +160,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
 
-
 SELECT ?Player ?Level
 WHERE {?Player game:hasLevel ?Level FILTER(?Level < 12)}
 
@@ -177,7 +185,6 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX game: <http://www.semanticweb.org/gatsinski/ontologies/2019/0/game-ontology#>
-
 
 SELECT ?Player
 WHERE {?Player game:hasName ?name FILTER(regex(?name, "Stark"))}
